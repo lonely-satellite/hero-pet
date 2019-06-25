@@ -3,6 +3,7 @@
 
 body {
   font-family: 'Bree Serif', serif;
+  background-color: #dffa67;
 }
 
 .innTitle, .innTitleEditable {
@@ -11,6 +12,7 @@ body {
   border: none;
   padding: 10px;
   font-family: 'Bree Serif', serif;
+  color: blue;
   font-weight: 700;
 }
 .innTitleEditable {
