@@ -1,4 +1,5 @@
-import { html, useState } from 'https://unpkg.com/preact-hook-htm?module';
+import { html, useState } from 'https://unpkg.com/preact-hook-htm@0.3.1-beta?module';
+import { generateTreasure } from '../data/treasure.js';
 
 const locations = [
   'beach',
@@ -14,6 +15,15 @@ export const ExploreMenu = ({ onExplore, disabled }) => {
     setIsOpen(!isOpen)
   }
 
+  const onLocationClick = (location) => () => {
+    // treasure finding chance
+    if (Math.random() < 0.5) {
+      onExplore(location, generateTreasure());
+    }
+
+    onExplore(location);
+  };
+
   if (!isOpen && !disabled) {
     return html`
       <div>
@@ -25,7 +35,7 @@ export const ExploreMenu = ({ onExplore, disabled }) => {
     return html`
       <div>
         <button onClick=${onExploreButtonClick}>Lets Explore!</button>
-        ${locations.map(location => html`<button key=${location} onClick=${() => onExplore(location)}>${location}</button>`)}
+        ${locations.map(location => html`<button key=${location} onClick=${onLocationClick(location)}>${location}</button>`)}
       </div>
     `;
   }

@@ -1,3 +1,4 @@
+// @flow
 import { getListRandomizer } from '../lib/random.js';
 
 const treasureAdjectives = [
@@ -46,4 +47,8 @@ const treasureNouns = [
 
 const getTreasureNoun = getListRandomizer(treasureNouns);
 
-export const createTreasure = () => `${getTreasureAdjective()} ${getTreasureNoun()}`
+/*::
+export type Treasure = string;
+*/
+
+export const generateTreasure = ()/*: Treasure*/ => `${getTreasureAdjective()} ${getTreasureNoun()}`

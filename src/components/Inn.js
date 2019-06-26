@@ -1,4 +1,4 @@
-import { html, useState } from 'https://unpkg.com/preact-hook-htm?module';
+import { html, useState } from 'https://unpkg.com/preact-hook-htm@0.3.1-beta?module';
 
 const innNames = [
   'Tavern',

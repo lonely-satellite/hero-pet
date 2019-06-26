@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/lonely-satellite/hero-pet#readme",
   "devDependencies": {
+    "flow-bin": "^0.102.0",
+    "flow-typed": "^2.5.2",
     "serve": "^11.0.2"
+  },
+  "dependencies": {
+    "preact-hook-htm": "^0.3.1-beta"
   }
 }

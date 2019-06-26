@@ -7,5 +7,5 @@
 [lints]
 
 [options]
-
+module.name_mapper='https://unpkg.com/preact-hook-htm.*?module' -> 'preact-hook-htm'
 [strict]
