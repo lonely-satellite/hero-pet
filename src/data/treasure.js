@@ -56,6 +56,6 @@ export type Treasure = {
 */
 
 export const generateTreasure = ()/*: Treasure*/ => ({
-  name: `${getTreasureAdjective()} ${getTreasureNoun()}`,
+  name: getTreasureAdjective() + ' ' + getTreasureAdjective() + ' ' + getTreasureNoun(),
   xp: Math.ceil(Math.random() * 3)
 })
