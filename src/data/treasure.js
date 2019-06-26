@@ -18,7 +18,6 @@ const treasureAdjectives = [
   'short',
   'small',
   'big',
-  'particular',
   'odd',
   'stinky',
   'legendary',
@@ -33,7 +32,18 @@ const treasureAdjectives = [
   'friendly'
 ];
 
-const getTreasureAdjective = getListRandomizer(treasureAdjectives);
+const firstAdjectives = [
+  ...treasureAdjectives,
+  'particularly'
+];
+
+const secondAdjectives = [
+  ...treasureAdjectives,
+  'particular',
+];
+
+const getFirstAdjective = getListRandomizer(firstAdjectives);
+const getSecondAdjective = getListRandomizer(secondAdjectives);
 
 const treasureNouns = [
   'stick',
@@ -61,6 +71,6 @@ export type Treasure = {
 */
 
 export const generateTreasure = ()/*: Treasure*/ => ({
-  name: getTreasureAdjective() + ' ' + getTreasureAdjective() + ' ' + getTreasureNoun(),
+  name: getFirstAdjective() + ' ' + getSecondAdjective() + ' ' + getTreasureNoun(),
   xp: Math.ceil(Math.random() * 3)
 })
