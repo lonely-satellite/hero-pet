@@ -26,7 +26,11 @@ const treasureAdjectives = [
   'soft',
   'dirty',
   'picture of a',
-  'sticky'
+  'sticky',
+  'prismatic',
+  'cute',
+  'broken',
+  'friendly'
 ];
 
 const getTreasureAdjective = getListRandomizer(treasureAdjectives);
@@ -42,8 +46,9 @@ const treasureNouns = [
   'sword',
   'skull',
   'bag',
-  'cup',
-  'ball'
+  'hat',
+  'ball',
+  'newspaper'
 ];
 
 const getTreasureNoun = getListRandomizer(treasureNouns);
