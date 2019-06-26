@@ -49,7 +49,13 @@ const treasureNouns = [
 const getTreasureNoun = getListRandomizer(treasureNouns);
 
 /*::
-export type Treasure = string;
+export type Treasure = {
+  name: string,
+  xp: number,
+};
 */
 
-export const generateTreasure = ()/*: Treasure*/ => `${getTreasureAdjective()} ${getTreasureNoun()}`
+export const generateTreasure = ()/*: Treasure*/ => ({
+  name: `${getTreasureAdjective()} ${getTreasureNoun()}`,
+  xp: Math.ceil(Math.random() * 3)
+})

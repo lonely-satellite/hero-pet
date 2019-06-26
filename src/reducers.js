@@ -40,8 +40,8 @@ const heroReducer = (state, action)/*: HeroState*/ => {
       if (action.treasure) {
         return {
           ...state,
-          allTreasure: [...state.allTreasure, action.treasure],
-          xp: state.xp + 1,
+          allTreasure: [action.treasure, ...state.allTreasure],
+          xp: state.xp + action.treasure.xp,
           energy: Math.max(0, state.energy - 1),
         }
       }

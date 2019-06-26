@@ -24,7 +24,7 @@ export const HeroPet = () => {
     <p>Experience: ${xp}</p>
     <h2>Treasure:</h2>
     <ul>
-      ${allTreasure.map(treasure => html`<p>${treasure}</p>`)}
+      ${allTreasure.map(treasure => html`<p>${treasure.name} <em>+${treasure.xp}</em></p>`)}
     </ul>
   `;
 };
