@@ -42,7 +42,8 @@ const treasureNouns = [
   'sword',
   'skull',
   'bag',
-  'cup'
+  'cup',
+  'ball'
 ];
 
 const getTreasureNoun = getListRandomizer(treasureNouns);
