@@ -24,7 +24,8 @@ const treasureAdjectives = [
   'wet',
   'soft',
   'dirty',
-  'picture of a',
+  //'picture of a',
+  // TODO: someday...
   'sticky',
   'prismatic',
   'cute',
