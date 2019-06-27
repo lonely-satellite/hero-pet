@@ -30,7 +30,10 @@ const treasureAdjectives = [
   'prismatic',
   'cute',
   'broken',
-  'friendly'
+  'friendly',
+  'spiky',
+  'strange',
+  'weird'
 ];
 
 const firstAdjectives = [
@@ -59,7 +62,14 @@ const treasureNouns = [
   'bag',
   'hat',
   'ball',
-  'newspaper'
+  'newspaper',
+  'book',
+  'robes',
+  'glove',
+  'shoe',
+  'ring',
+  'box',
+  'orb'
 ];
 
 const getTreasureNoun = getListRandomizer(treasureNouns);
