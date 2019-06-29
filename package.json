@@ -1,27 +1,16 @@
 {
   "name": "hero-pet",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lonely-satellite/hero-pet.git"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/lonely-satellite/hero-pet/issues"
   },
   "homepage": "https://github.com/lonely-satellite/hero-pet#readme",
   "devDependencies": {
-    "flow-bin": "^0.102.0",
-    "flow-typed": "^2.5.2",
-    "serve": "^11.0.2"
-  },
-  "dependencies": {
-    "preact-hook-htm": "^0.3.1-beta"
+    "preact-hook-htm": "^0.5.0-beta"
   }
 }

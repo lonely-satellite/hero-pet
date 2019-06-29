@@ -1,5 +1,5 @@
 // @flow
-import { html, useState, useEffect, useReducer } from 'https://unpkg.com/preact-hook-htm@0.3.1-beta?module';
+import { html, useState, useEffect, useReducer } from 'https://unpkg.com/preact-hook-htm@0.5.0-beta?module';
 import { Inn } from './components/Inn.js';
 import { HeroName } from './components/HeroName.js';
 import { ExploreMenu } from './components/ExploreMenu.js';
