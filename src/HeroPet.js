@@ -9,7 +9,7 @@ import { FreeRooms } from './components/FreeRooms.js';
 import { Heroes } from './components/Heroes.js';
 
 import { gameReducer, DEFAULT_GAME_STATE } from './reducers.js';
-import { passDay, changeInnName, offerRoom } from './actions.js';
+import { explore, passDay, changeInnName, offerRoom } from './actions.js';
 
 export const HeroPet = () => {
   const [{ heroState, innState }, dispatch] = useReducer(gameReducer, DEFAULT_GAME_STATE);
@@ -33,9 +33,10 @@ export const HeroPet = () => {
 
   return html`
     <${Inn} innName=${innName} onInnNameChange=${newName => dispatch(changeInnName(newName))} />
+    ${days === 0 && html`<p>Today is the opening day of your new inn, the ${innName}!</p>`}
     <${PassingPetsDescription} passingPets=${passingPets} />
-    <${FreeRooms} freeRooms=${openRooms} passingPets=${passingPets} onRoomOffer=${pet => dispatch(offerRoom(pet))} />
-    <${Heroes} heroes=${heroes} />
+    <${FreeRooms} heroes=${heroes} freeRooms=${openRooms} passingPets=${passingPets} onRoomOffer=${pet => dispatch(offerRoom(pet))} />
+    <${Heroes} heroes=${heroes} onExplore=${hero => dispatch(explore(hero.id))} />
     <button onClick=${onEndDay}>Close the ${innName} for Tonight</button>
   `;
 };

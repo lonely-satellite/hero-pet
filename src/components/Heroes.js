@@ -1,12 +1,14 @@
 // @flow
 import { html, createElement as h } from '../lib/react.js';
 import { Plural } from './Plural.js';
+import { HeroRoom } from './Room.js';
 
 /*::
 import type { Hero } from '../data/hero';
 
 type Props = {
   heroes: Array<Hero>,
+  onExplore: (hero: Hero) => void,
 };
 */
 const p = (...children) => h('p', {}, ...children);
@@ -33,12 +35,7 @@ const HeroesDescription = ({ heroes }) => {
   return p(h(PluralHeroes, { heroes }), ' are relaxing in their rooms.');
 };
 
-export const Heroes = ({ heroes }/*: Props*/) => {
-  return div(
-    h(HeroesDescription, { heroes }),
-    ...heroes.map(hero => div(
-      p('Energy: ', progress(3 - hero.energy, 3)),
-      div(button(() => console.log('Explore'), 'Explore!')),
-    ))
-  );
-};
+export const Heroes = ({ heroes, onExplore }/*: Props*/) => [
+  h(HeroesDescription, { heroes }),
+  ...heroes.map(hero => h(HeroRoom, { hero, onExplore: () => onExplore(hero) }))
+];

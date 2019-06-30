@@ -2,6 +2,7 @@
 import { generatePet } from './data/pet.js';
 import { getRandomInnName } from './data/inn.js';
 import { generateHero } from './data/hero.js';
+import { times } from './lib/array.js';
 /*::
 import type { Item } from './data/item';
 import type { HeroPetAction } from './actions';
@@ -17,7 +18,7 @@ type HeroState = {
 */
 
 const DEFAULT_HERO_STATE = {
-  passingPets: [],
+  passingPets: times(Math.ceil(Math.random() * 3), generatePet),
   heroes: [],
 }
 
@@ -30,20 +31,23 @@ const heroReducer = (state, action)/*: HeroState*/ => {
           ...state.heroes,
           generateHero(action.passingPet),
         ],
-        passingPets: state.passingPets.filter(pet => action.passingPet.id !== pet.id)
       }
     }
     case 'day-passed': {
-      const passingPetCount = Math.ceil(Math.random() * 5);
-      const passingPets = [];
-      for (let i = 0; i < passingPetCount; i++) {
-        passingPets.push(generatePet());
-      }
       return {
         ...state,
-        passingPets,
+        passingPets: times(Math.ceil(Math.random() * 3), generatePet),
         heroes: state.heroes.map(hero => ({ ...hero, energy: 0 })),
       }
+    }
+    case 'explore': {
+      return {
+        ...state,
+        heroes: state.heroes.map(hero => hero.id !== action.heroId ? hero : ({
+          ...hero,
+          energy: hero.energy + 1,
+        }))
+      };
     }
     /*
     case 'pet': {

@@ -2,11 +2,13 @@
 /*::
 import type { Treasure } from './data/treasure';
 import type { Pet } from './data/pet';
+import type { HeroID } from './data/hero';
 */
 
 /*::
 export type ExploreAction = {
   type: 'explore',
+  heroId: HeroID,
   treasure?: Treasure,
 };
 
@@ -29,8 +31,9 @@ export type OfferRoomAction = {
 }
 */
 
-export const createExploreAction = (treasure/*:: ?: Treasure*/)/*: ExploreAction*/ => ({
+export const explore = (heroId/*: HeroID*/, treasure/*:: ?: Treasure*/)/*: ExploreAction*/ => ({
   type: 'explore',
+  heroId,
   treasure,
 });
 
