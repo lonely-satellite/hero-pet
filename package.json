@@ -11,6 +11,6 @@
   },
   "homepage": "https://github.com/lonely-satellite/hero-pet#readme",
   "devDependencies": {
-    "preact-hook-htm": "^0.5.0-beta"
+    "preact-hook-htm": "^0.6.0-beta"
   }
 }
