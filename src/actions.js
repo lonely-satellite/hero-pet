@@ -1,6 +1,7 @@
 // @flow
 /*::
 import type { Treasure } from './data/treasure';
+import type { Pet } from './data/pet';
 */
 
 /*::
@@ -13,9 +14,19 @@ export type PetAction = {
   type: 'pet',
 };
 
-export type GotoNextDayAction = {
-  type: 'goto-next-day',
+export type PassDayAction = {
+  type: 'day-passed',
 };
+
+export type ChangeInnNameAction = {
+  type: 'changed-inn-name',
+  newInnName: string,
+}
+
+export type OfferRoomAction = {
+  type: 'offered-room',
+  passingPet: Pet,
+}
 */
 
 export const createExploreAction = (treasure/*:: ?: Treasure*/)/*: ExploreAction*/ => ({
@@ -28,8 +39,18 @@ export const createPetAction = ()/*: PetAction*/ => ({
 });
 
 
-export const createGotoNextDayAction = ()/*: GotoNextDayAction*/ => ({
-  type: 'goto-next-day',
+export const passDay = ()/*: PassDayAction*/ => ({
+  type: 'day-passed',
+});
+
+export const changeInnName = (newInnName/*: string */)/*: ChangeInnNameAction*/ => ({
+  type: 'changed-inn-name',
+  newInnName,
+});
+
+export const offerRoom = (passingPet/*: Pet */)/*: OfferRoomAction*/ => ({
+  type: 'offered-room',
+  passingPet,
 });
 
 
@@ -37,5 +58,7 @@ export const createGotoNextDayAction = ()/*: GotoNextDayAction*/ => ({
 export type HeroPetAction = 
   | ExploreAction
   | PetAction
-  | GotoNextDayAction;
+  | PassDayAction
+  | ChangeInnNameAction
+  | OfferRoomAction
 */

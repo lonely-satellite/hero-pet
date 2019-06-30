@@ -1,30 +1,41 @@
 // @flow
-import { html, useState, useEffect, useReducer } from 'https://unpkg.com/preact-hook-htm@0.5.0-beta?module';
+import { html, useReducer, useState } from 'https://unpkg.com/preact-hook-htm@0.5.0-beta?module';
 import { Inn } from './components/Inn.js';
 import { HeroName } from './components/HeroName.js';
+import { PassingPetsDescription } from './components/PassingPetsDescription.js';
 import { ExploreMenu } from './components/ExploreMenu.js';
+import { EndOfDayReview } from './components/EndOfDayReview.js';
+import { FreeRooms } from './components/FreeRooms.js';
+import { Heroes } from './components/Heroes.js';
 
 import { gameReducer, DEFAULT_GAME_STATE } from './reducers.js';
-import { createExploreAction, createPetAction, createGotoNextDayAction } from './actions.js';
+import { passDay, changeInnName, offerRoom } from './actions.js';
 
 export const HeroPet = () => {
-  const [gameState, dispatch] = useReducer(gameReducer, DEFAULT_GAME_STATE);
-  const { heroState } = gameState;
-  const { pets, energy, allTreasure, xp } = heroState;
+  const [{ heroState, innState }, dispatch] = useReducer(gameReducer, DEFAULT_GAME_STATE);
+  const [reviewClosed, setReviewClosed] = useState(true);
+  const { heroes, passingPets  } = heroState;
+  const { days, innName, openRooms } = innState;
 
-  const canPet = pets < 3;
-  const canExplore = energy > 0;
+  const onEndDay = () => {
+    setReviewClosed(false);
+    dispatch(passDay());
+  };
+
+  if (!reviewClosed) {
+    return html`
+      <${EndOfDayReview}
+        day=${days}
+        innName=${innName}
+        onCloseReview=${() => setReviewClosed(true)}
+      />`;
+  }
 
   return html`
-    <${Inn} />
-    <progress className="energyBar" max="10" value=${energy}> ${energy * 10}% </progress>
-    <button onClick=${() => dispatch(createGotoNextDayAction())}>Go to Sleep</button>
-    <button disabled=${!canPet} onClick=${() => dispatch(createPetAction())}>${canPet ? 'Pet the Dog' : 'Too much Pet!'}</button>
-    <${ExploreMenu} onExplore=${(location, treasure) => dispatch(createExploreAction(treasure))} disabled=${!canExplore} />
-    <p>Experience: ${xp}</p>
-    <h2>Treasure:</h2>
-    <ul>
-      ${allTreasure.map(treasure => html`<p>${treasure.name} <em>+${treasure.xp}</em></p>`)}
-    </ul>
+    <${Inn} innName=${innName} onInnNameChange=${newName => dispatch(changeInnName(newName))} />
+    <${PassingPetsDescription} passingPets=${passingPets} />
+    <${FreeRooms} freeRooms=${openRooms} passingPets=${passingPets} onRoomOffer=${pet => dispatch(offerRoom(pet))} />
+    <${Heroes} heroes=${heroes} />
+    <button onClick=${onEndDay}>Close the ${innName} for Tonight</button>
   `;
 };

@@ -13,7 +13,7 @@ export const getListRandomizer = (list) => () => (
 
 const getRandomInnName = getListRandomizer(innNames);
 
-export const Inn = () => {
+export const Inn = ({ innName, onInnNameChange }) => {
   const [name, setName] = useState(getRandomInnName())
 
   return html`
@@ -21,8 +21,8 @@ export const Inn = () => {
       <input class="innTitleEditable"
         type="text"
         placeholder="Name your Inn!"
-        onChange=${event => setName(event.target.value)}
-        value=${name}
+        onChange=${event => onInnNameChange(event.target.value)}
+        value=${innName}
       />
     </>
   `
