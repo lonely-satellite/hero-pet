@@ -3,20 +3,23 @@
 
 body {
   font-family: 'Bree Serif', serif;
-  background-color: #dffa67;
+  background-color: #fabf67;
 }
 
 .innTitle, .innTitleEditable {
-  font-size: 32;
+  font-size: 32px;
   background: none;
   border: none;
   padding: 10px;
   font-family: 'Bree Serif', serif;
-  color: blue;
+  color: #7c1d1d;
   font-weight: 700;
 }
 .innTitleEditable {
   text-decoration: underline;
 }
-.energyBar {
+button {
+  font-family: 'Bree Serif', serif;
+  padding: 5px;
+  border-radius: 5px;
 }
