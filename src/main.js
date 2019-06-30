@@ -1,4 +1,4 @@
-import { render, html } from 'https://unpkg.com/preact-hook-htm@0.5.0-beta?module';
+import { render, html } from './lib/react.js';
 import { HeroPet } from './HeroPet.js';
 
 const main = () => {

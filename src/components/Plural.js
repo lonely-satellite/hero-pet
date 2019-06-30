@@ -1,18 +1,18 @@
 // @flow
-import { html } from 'https://unpkg.com/preact-hook-htm@0.5.0-beta?module';
+import { html } from '../lib/react.js';
 
 /*::
-import type { vNode } from 'preact-hook-htm';
+import type { PreactElement } from 'preact-hook-htm';
 
 type Props<T> = {
   elements: Array<T>,
-  renderJoiner: () => vNode,
-  renderFinalJoiner: () => vNode,
-  renderElement: T => vNode,
+  renderJoiner: () => PreactElement,
+  renderFinalJoiner: () => PreactElement,
+  renderElement: T => PreactElement,
 };
 */
 
-export const Plural = /*:: <T>*/({ elements, renderElement, renderJoiner, renderFinalJoiner }/*: Props<T>*/)/*:vNode*/ => {
+export const Plural = /*:: <T>*/({ elements, renderElement, renderJoiner, renderFinalJoiner }/*: Props<T>*/)/*:PreactElement*/ => {
   if (elements.length < 2) {
     return renderElement(elements[0]);
   }

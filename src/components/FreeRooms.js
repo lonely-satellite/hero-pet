@@ -1,5 +1,5 @@
 // @flow
-import { html, useState } from 'https://unpkg.com/preact-hook-htm@0.5.0-beta?module';
+import { html, useState } from '../lib/react.js';
 
 /*::
 import type { Pet } from '../data/pet';

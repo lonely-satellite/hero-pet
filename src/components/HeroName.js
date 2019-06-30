@@ -1,4 +1,4 @@
-import { html } from 'https://unpkg.com/preact-hook-htm@0.5.0-beta?module';
+import { html } from '../lib/react.js';
 
 export const HeroName = ({ name, adjective }/*: Props*/) => html`
   <p><em>${name}</em>, the <em>${adjective}</em></>

@@ -18,8 +18,11 @@ body {
 .innTitleEditable {
   text-decoration: underline;
 }
-button {
-  font-family: 'Bree Serif', serif;
-  padding: 5px;
+button, select {
   border-radius: 5px;
+  padding: 5px;
+}
+p, button, select {
+  font-family: 'Bree Serif', serif;
+  font-size: 16px;
 }

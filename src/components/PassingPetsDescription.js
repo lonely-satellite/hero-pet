@@ -1,10 +1,10 @@
 // @flow
-import { html } from 'https://unpkg.com/preact-hook-htm@0.5.0-beta?module';
+import { html } from '../lib/react.js';
 
 import { Plural } from './Plural.js';
 
 /*::
-import type { vNode } from 'preact-hook-htm';
+import type { PreactElement } from 'preact-hook-htm';
 import type { Pet } from '../data/pet';
 
 type Props = {
@@ -20,7 +20,7 @@ const PluralPets = ({ pets, onClick }) => html`<${Plural}
   renderFinalJoiner=${() => html`<span> and </span>`}
 />`;
 
-export const PassingPetsDescription = ({ passingPets, onPassingPetPress }/*: Props*/)/*: vNode*/ => {
+export const PassingPetsDescription = ({ passingPets, onPassingPetPress }/*: Props*/)/*: PreactElement*/ => {
   const renderPassingPet = (pet) => html`
     <button
       onClick=${() => onPassingPetPress(pet)}

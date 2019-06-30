@@ -7,5 +7,11 @@
 [lints]
 
 [options]
-module.name_mapper='https://unpkg.com/preact-hook-htm.*?module' -> 'preact-hook-htm'
+module.name_mapper='https://unpkg\.com/preact-hook-htm@0\.7\.0-beta\?module' -> 'preact-hook-htm'
 [strict]
+nonstrict-import
+unclear-type
+unsafe-getters-setters
+untyped-import
+untyped-type-import
+sketchy-null
